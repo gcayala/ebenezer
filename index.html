@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ebenezer Supermercado — Tu Vecino de Confianza</title>
+  <meta name="description" content="Ebenezer Supermercado: frescura, calidez y confianza en cada compra. El corazón del barrio Villas de Madrigal."/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ========== TOP NAVIGATION ========== -->
+<nav class="top-nav">
+  <a href="#" class="nav-logo" onclick="event.preventDefault(); navigateTo('view-home');">
+    <img src="logo-principal.png" alt="Ebenezer Logo"/>
+    <span>Ebenezer</span>
+  </a>
+  <div class="nav-links">
+    <a href="#" data-view="view-home" class="active">Home</a>
+    <a href="#" data-view="view-tienda">Tienda</a>
+    <a href="#" data-view="view-nosotros">Nosotros</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;">
+    <button class="mobile-menu-btn">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+    <button class="cart-btn" onclick="navigateTo('view-tienda')">
+      <span class="material-symbols-outlined">shopping_cart</span>
+      <span class="cart-counter" id="cart-counter">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ========== APP CONTAINER ========== -->
+<div class="app-container">
+
+<!-- ==================== HOME ==================== -->
+<div id="view-home" class="view active">
+  <div class="promo-banner">🚚 ¡Domicilios GRATIS a 3 barrios a la redonda!</div>
+  <section class="hero">
+    <div class="floating-pattern left"></div>
+    <div class="floating-pattern right"></div>
+    <div class="hero-content">
+      <img src="logo-principal.png" alt="Ebenezer" style="width:140px;margin:0 auto 1.5rem;display:block;filter:drop-shadow(0 6px 20px rgba(0,0,0,0.1))"/>
+      <h1>Tu vecino de <span class="accent">confianza</span>, siempre cerca de ti</h1>
+      <p>Frescura del campo, calidez de barrio y los mejores precios para tu hogar. Bienvenido a Ebenezer Supermercado, el corazón de Villas de Madrigal.</p>
+      <button class="btn-primary" onclick="navigateTo('view-tienda')">
+        <span class="material-symbols-outlined">storefront</span>
+        Explorar Tienda
+      </button>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== TIENDA ==================== -->
+<div id="view-tienda" class="view">
+  <div class="promo-banner">🚚 ¡Domicilios GRATIS a 3 barrios a la redonda!</div>
+
+  <div class="store-section">
+    <div class="section-header">
+      <span class="material-symbols-outlined">local_florist</span>
+      <h2>Frutas y Verduras</h2>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="card-img">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzdfLUjZa-ltAuNIjZcJQi4ZaJO1uOS2GA8Meuj1g4StuQ3sd6YORfVS4_SnY1GDesra7dYnAWFob5DhkqI7lrhA8M_tJfTddMQraBTkg68BAXNUy_xB9JecOztIsAllt8rI8QmuuTZIKrwYxOr7vkvfD5xU9leFTT83hEktJfp_qKg83Fc3S3YrZsS6fJNljnad_tbRXfGDAcIXYpnh0-z2rcQBe0qYiJMqaCMQCth0FLe0dXCx6L_aZmaOH-0_nSiMX9aQsEkuw" alt="Plátanos Frescos"/>
+          <span class="card-badge">Fresco</span>
+        </div>
+        <div class="card-body">
+          <h3>Plátanos Frescos</h3>
+          <p>Directamente del campo, ideales para un snack saludable.</p>
+        </div>
+        <div class="card-footer">
+          <span class="card-price">$1.50 <span class="unit">/ lb</span></span>
+          <button class="add-btn" onclick="addToCart(this)"><span class="material-symbols-outlined">add</span></button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZm_Mbo38fFRLx42YU8FzixmQiv7DoXgHzKZ9udfJxmrduqka7d_lsQC1eMIrTMXCO5P7mfFgt_n0jD6WLWXt34yEr9-xNmr4J6R5yC7ctRWgOnqIOqUH5vyx5hw5avraqzzpAC6o41sAcdRghxx0ESmVc_Xm5wAEeXYFQ5gcjDRV5fVdTvCeVom7plRQ8JdNQI2lcRLJaZ_ybrjtelnb1Xo7XznkTFy1xgZ-vSkhy3P2FUkN33_E--VYTzo_mkPjtEraxsBup_Io" alt="Tomates de Huerta"/>
+          <span class="card-badge">Local</span>
+        </div>
+        <div class="card-body">
+          <h3>Tomates de Huerta</h3>
+          <p>Rojos, jugosos y perfectos para ensaladas o salsas.</p>
+        </div>
+        <div class="card-footer">
+          <span class="card-price">$2.20 <span class="unit">/ lb</span></span>
+          <button class="add-btn" onclick="addToCart(this)"><span class="material-symbols-outlined">add</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="store-section">
+    <div class="section-header">
+      <span class="material-symbols-outlined">inventory_2</span>
+      <h2>Despensa</h2>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="card-img">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAPHLPjPP4454GKTZfwd79c2FE-BpIu6THcJ-eb7azlT-68e-CL5W5FGosORT9ExpTKIFu04lDWlT_1gvvLP5CH35MK35fgHdF1Miq9omFOpIdZHgtgEbr5C4aClakB6nd5_3awuYkcr9T3NdUFixTCzq-KqjBt7hZkUIYMz-LVw-RNYVpnSR0OAbdXozE_fQwY9-7RXuG7CVt-psJ0ywo6j-Dz4FxsRykC0MKhk-XkeDlrg6P92QuFaduTJsDeMGWeAvlCi1ZTjY" alt="Arroz Blanco"/>
+        </div>
+        <div class="card-body">
+          <h3>Arroz Blanco Premium</h3>
+          <p>Grano largo, no se pega. El básico de cada hogar.</p>
+        </div>
+        <div class="card-footer">
+          <span class="card-price">$3.00 <span class="unit">/ 2 lb</span></span>
+          <button class="add-btn" onclick="addToCart(this)"><span class="material-symbols-outlined">add</span></button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIdNnG4nxHAEDX_yQZtGeo5RuuvwGFmcJJOZVv-s96MWtc5ur7XoKGJCa54Ght4sKynf91GwysE_9moK6eYMRfUYTOFgDLTxbEt_DRznnzgBGknpMkgGKy97zDn0J0jo4lky3VrVRrzI1MC5PzdGNBxWQB2vcdkzpmXGQzhdqaSmqdDHGgphX5ZPVUMSdKfViO61vGYDWiRFiwqYLVrPhnRtIfal7s5-tKH6ov6YgxVc2JKR-J5iTI_5VN6jrkC_TCGkY73iS8JtU" alt="Aceite de Oliva"/>
+        </div>
+        <div class="card-body">
+          <h3>Aceite de Oliva Virgen</h3>
+          <p>Prensado en frío, sabor suave ideal para cocinar.</p>
+        </div>
+        <div class="card-footer">
+          <span class="card-price">$8.50 <span class="unit">/ 500ml</span></span>
+          <button class="add-btn" onclick="addToCart(this)"><span class="material-symbols-outlined">add</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== NOSOTROS — BRANDBOOK VIVO ==================== -->
+<div id="view-nosotros" class="view">
+<div class="brandbook">
+
+  <!-- ====== A) HERO INTRO / ADN / TERRITORIO DE MARCA ====== -->
+  <section class="bb-hero">
+    <div class="bb-hero-bg"></div>
+    <div class="bb-hero-overlay"></div>
+    <div class="bb-hero-content">
+      <img src="logo-principal.png" alt="Ebenezer" class="bb-hero-logo"/>
+      <span class="bb-label">Nuestro ADN</span>
+      <h1>Donde el barrio se encuentra con la <span class="warm">calidez</span> y la <span class="fresh">frescura</span></h1>
+      <p class="bb-intro-text">
+        Ebenezer nace de una necesidad profunda: <strong>humanizar el comercio local</strong>. 
+        No somos solo un supermercado — somos el punto de encuentro cálido del barrio 
+        <strong>Villas de Madrigal</strong> y sus alrededores, donde cada visita se siente como 
+        llegar a casa. Aquí, cada producto cuenta una historia de campo, de frescura 
+        y de compromiso con tu familia.
+      </p>
+      <div class="scroll-indicator">
+        <span>Descubre nuestra esencia</span>
+        <span class="material-symbols-outlined">keyboard_arrow_down</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PALETA DE COLORES ====== -->
+  <section class="bb-palette reveal">
+    <h2 class="bb-section-title">Nuestros Colores</h2>
+    <p class="bb-section-subtitle">Una paleta inspirada en el campo y la tradición</p>
+    <div class="palette-grid">
+      <div class="palette-swatch">
+        <div class="swatch-color" style="background:#CF8629;"></div>
+        <div class="swatch-info"><div class="swatch-name">Racing Red</div><div class="swatch-hex">#CF8629</div></div>
+      </div>
+      <div class="palette-swatch">
+        <div class="swatch-color" style="background:#8B9541;"></div>
+        <div class="swatch-info"><div class="swatch-name">Palm Leaf</div><div class="swatch-hex">#8B9541</div></div>
+      </div>
+      <div class="palette-swatch">
+        <div class="swatch-color" style="background:#E01D1D;"></div>
+        <div class="swatch-info"><div class="swatch-name">Bronze</div><div class="swatch-hex">#E01D1D</div></div>
+      </div>
+      <div class="palette-swatch">
+        <div class="swatch-color" style="background:#94C01F;"></div>
+        <div class="swatch-info"><div class="swatch-name">Lime Moss</div><div class="swatch-hex">#94C01F</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== B) PROPÓSITO, MISIÓN Y VISIÓN — TABS ====== -->
+  <section class="bb-section reveal">
+    <h2 class="bb-section-title">Nuestra Razón de Ser</h2>
+    <p class="bb-section-subtitle">Lo que nos mueve cada mañana al abrir las puertas</p>
+
+    <div class="bb-tabs-group">
+      <div class="bb-tabs">
+        <button class="bb-tab-btn active" data-target="proposito">🎯 Propósito</button>
+        <button class="bb-tab-btn" data-target="mision">🧭 Misión</button>
+        <button class="bb-tab-btn" data-target="vision">🔭 Visión</button>
+      </div>
+
+      <div class="bb-tab-content active" data-tab="proposito">
+        <span class="tab-icon">❤️</span>
+        <h3>Nuestro Propósito</h3>
+        <p>Ser el <strong>corazón del abastecimiento del hogar</strong>, garantizando frescura y calidez en cada interacción. Creemos que un supermercado no es solo un lugar de compras — es un espacio donde las familias confían sus necesidades diarias, donde el tendero conoce tu nombre y donde la calidad no se negocia, se garantiza.</p>
+        <p style="margin-top:1rem;">Cada producto en nuestras estanterías pasa por manos que lo seleccionan con el mismo cariño con el que elegirías lo mejor para tu propia mesa.</p>
+      </div>
+
+      <div class="bb-tab-content" data-tab="mision">
+        <span class="tab-icon">🌱</span>
+        <h3>Nuestra Misión</h3>
+        <p>Brindar <strong>productos seleccionados minuciosamente</strong> bajo una relación estrecha y de absoluta confianza con la comunidad. No competimos por volumen, competimos por cercanía. Cada decisión que tomamos — desde la disposición de los pasillos hasta la sonrisa en el mostrador — está diseñada para hacerte sentir en casa.</p>
+        <p style="margin-top:1rem;">Nos comprometemos a proteger la economía de tu hogar, ofreciendo precios justos sin sacrificar la calidad que tu familia merece.</p>
+      </div>
+
+      <div class="bb-tab-content" data-tab="vision">
+        <span class="tab-icon">✨</span>
+        <h3>Nuestra Visión</h3>
+        <p>Convertirnos en el <strong>referente de confianza</strong> del comercio de barrio en nuestra comunidad, demostrando que un supermercado local puede ofrecer una experiencia que las grandes cadenas jamás podrán replicar: la genuina calidez humana, el conocimiento personal de cada cliente y un compromiso inquebrantable con la frescura.</p>
+        <p style="margin-top:1rem;">Soñamos con un futuro donde cada barrio tenga su propio Ebenezer — un lugar donde la tecnología moderna se abraza con la tradición del mercado de siempre.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== C) PERSONALIDAD Y ARQUETIPOS ====== -->
+  <section class="bb-archetypes">
+    <div style="max-width:1000px;margin:0 auto;">
+      <h2 class="bb-section-title reveal">Personalidad de Marca</h2>
+      <p class="bb-section-subtitle reveal" style="margin-bottom:1rem;">
+        Ebenezer se aleja de la rigidez corporativa. Nuestras formas son redondeadas, amables y acogedoras — como un abrazo del barrio.
+      </p>
+
+      <div class="bb-arch-grid">
+        <!-- El Inocente -->
+        <div class="bb-arch-card reveal-left">
+          <div class="arch-header">
+            <div class="arch-icon-circle innocent">
+              <span class="material-symbols-outlined">sentiment_very_satisfied</span>
+            </div>
+            <h3>El Inocente</h3>
+          </div>
+          <div class="arch-body">
+            <p>Representado por la <strong>amabilidad pura</strong>, la transparencia y el optimismo del comercio tradicional de barrio. El Inocente cree en la bondad fundamental de las personas y busca crear un espacio donde la confianza sea el idioma universal.</p>
+            <div class="arch-traits">
+              <span class="arch-trait warm"><img src="icono-manati.png" alt=""/> Transparencia</span>
+              <span class="arch-trait warm"><img src="icono-manati.png" alt=""/> Optimismo</span>
+              <span class="arch-trait warm"><img src="icono-manati.png" alt=""/> Sencillez</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- El Cuidador -->
+        <div class="bb-arch-card reveal-right">
+          <div class="arch-header">
+            <div class="arch-icon-circle caregiver">
+              <span class="material-symbols-outlined">volunteer_activism</span>
+            </div>
+            <h3>El Cuidador — "El Papá Amable"</h3>
+          </div>
+          <div class="arch-body">
+            <p>Enfocado en <strong>proteger la economía del hogar</strong>, dar un servicio cercano y velar por el bienestar del vecindario. El Cuidador no vende productos — cuida familias. Es la voz que te recomienda lo mejor y el corazón que celebra cada encuentro.</p>
+            <div class="arch-traits">
+              <span class="arch-trait green"><img src="icono-manati.png" alt=""/> Protección</span>
+              <span class="arch-trait green"><img src="icono-manati.png" alt=""/> Servicio</span>
+              <span class="arch-trait green"><img src="icono-manati.png" alt=""/> Cercanía</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Imagen del arquetipo -->
+      <div class="bb-arch-image reveal">
+        <img src="arquetipo-cuidador.jpg" alt="El Cuidador — Nuestro manatí entregando frescura a las familias"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== D) UNIVERSO GRÁFICO — ACCORDION ====== -->
+  <section class="bb-graphic-universe">
+    <div class="floating-pattern right"></div>
+    <h2 class="bb-section-title reveal">Universo Gráfico</h2>
+    <p class="bb-section-subtitle reveal">Las reglas que protegen nuestra esencia visual</p>
+
+    <div class="accordion-container reveal">
+      <!-- Item 1: Logo -->
+      <div class="accordion-item open">
+        <div class="accordion-header">
+          <h4>
+            <span class="acc-icon"><span class="material-symbols-outlined">palette</span></span>
+            Uso Correcto del Logo
+          </h4>
+          <span class="material-symbols-outlined accordion-chevron">expand_more</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>Nuestro logo es el corazón de la identidad visual de Ebenezer. Su forma circular y el arco de la cinta representan <strong>protección, unión y abundancia</strong>. Para mantener su esencia orgánica y cercana:</p>
+            <div class="logo-showcase">
+              <img src="logo-principal.png" alt="Logo Ebenezer — Uso correcto"/>
+            </div>
+            <ul class="dont-list">
+              <li><span class="material-symbols-outlined">block</span> No aplicar sombras duras (drop-shadow pesado)</li>
+              <li><span class="material-symbols-outlined">block</span> No usar efectos de bisel o 3D rígido</li>
+              <li><span class="material-symbols-outlined">block</span> No aplicar degradados lineales sobre el logo</li>
+              <li><span class="material-symbols-outlined">block</span> No distorsionar las proporciones originales</li>
+              <li><span class="material-symbols-outlined">block</span> No colocar sobre fondos que reduzcan su legibilidad</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2: Tipografía -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h4>
+            <span class="acc-icon"><span class="material-symbols-outlined">text_fields</span></span>
+            Tipografía de Marca
+          </h4>
+          <span class="material-symbols-outlined accordion-chevron">expand_more</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p><strong>Quicksand</strong> para todos los títulos del Brandbook — su redondez refuerza la psicología de cercanía y amabilidad de la marca. Cada curva en sus letras comunica confianza sin rigidez.</p>
+            <p style="margin-top:0.8rem"><strong>Poppins</strong> para los bloques de lectura corporativa — ofrece alta legibilidad en textos largos sin perder la calidez que nos define, manteniendo la coherencia con nuestro lenguaje redondeado.</p>
+            <div style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap;">
+              <div style="flex:1;min-width:200px;padding:1.5rem;background:rgba(139,149,65,0.05);border-radius:16px;text-align:center;">
+                <span style="font-family:'Quicksand';font-size:2rem;font-weight:700;color:var(--palm-leaf);">Quicksand</span>
+                <p style="font-family:'Quicksand';margin-top:0.5rem;font-size:0.85rem;color:var(--text-muted);">Títulos y Headlines</p>
+              </div>
+              <div style="flex:1;min-width:200px;padding:1.5rem;background:rgba(207,134,41,0.05);border-radius:16px;text-align:center;">
+                <span style="font-family:'Poppins';font-size:2rem;font-weight:600;color:var(--racing-red);">Poppins</span>
+                <p style="font-family:'Poppins';margin-top:0.5rem;font-size:0.85rem;color:var(--text-muted);">Cuerpo de Texto</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3: Formas -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h4>
+            <span class="acc-icon"><span class="material-symbols-outlined">rounded_corner</span></span>
+            Lenguaje de Formas
+          </h4>
+          <span class="material-symbols-outlined accordion-chevron">expand_more</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>Todo en Ebenezer es <strong>redondeado</strong>. No existen esquinas afiladas en nuestro universo visual. Esta decisión es intencional: las formas suaves comunican accesibilidad, calidez y cercanía — los pilares de nuestra personalidad de marca.</p>
+            <div style="margin-top:1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap;justify-content:center;">
+              <div style="width:80px;height:80px;border-radius:8px;background:var(--palm-leaf);display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.7rem;font-weight:600;">8px</div>
+              <div style="width:80px;height:80px;border-radius:16px;background:var(--racing-red);display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.7rem;font-weight:600;">16px</div>
+              <div style="width:80px;height:50px;border-radius:9999px;background:var(--lime-moss);display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.7rem;font-weight:600;">Pill</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4: Patrón -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h4>
+            <span class="acc-icon"><span class="material-symbols-outlined">grid_view</span></span>
+            Patrón Ilustrativo
+          </h4>
+          <span class="material-symbols-outlined accordion-chevron">expand_more</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>Nuestro patrón de frutas y elementos del mercado se utiliza como <strong>marca de agua sutil</strong> en áreas de alta permanencia y como fondo decorativo al 10-15% de opacidad. Refuerza visualmente la identidad agrícola y la frescura que nos define.</p>
+            <div style="margin-top:1rem;border-radius:16px;overflow:hidden;position:relative;height:120px;">
+              <img src="patron-frutas.png" alt="Patrón Ebenezer" style="width:100%;height:100%;object-fit:cover;opacity:0.12;"/>
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                <span style="font-family:'Quicksand';font-weight:700;color:var(--palm-leaf);font-size:1rem;background:rgba(249,248,244,0.85);padding:6px 20px;border-radius:9999px;">Opacidad: 10-15%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /brandbook -->
+</div><!-- /view-nosotros -->
+
+</div><!-- /app-container -->
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="footer-brand">Ebenezer Supermercado</div>
+  <div class="footer-links">
+    <a href="#">Contacto</a>
+    <a href="#">Ubicación</a>
+    <a href="#">Términos</a>
+    <a href="#">Privacidad</a>
+  </div>
+  <div class="footer-copy">© 2024 Ebenezer Supermercado. Tu vecino de confianza.</div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
