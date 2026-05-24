@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ebenezer Supermercado - Tienda</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&amp;family=Quicksand:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#cbc4d2",
+                        "primary-fixed-dim": "#cfbcff",
+                        "surface-container-high": "#ece6ee",
+                        "on-secondary-fixed": "#1f1635",
+                        "on-tertiary-container": "#503d00",
+                        "on-secondary-container": "#645a7d",
+                        "secondary": "#63597c",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f5eff7",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "on-primary-container": "#e0d2ff",
+                        "surface-dim": "#ded8e0",
+                        "on-secondary": "#ffffff",
+                        "outline": "#7a7582",
+                        "primary": "#4f378a",
+                        "surface-container-low": "#f8f2fa",
+                        "primary-container": "#6750a4",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "on-surface": "#1d1b20",
+                        "tertiary-fixed": "#ffdf93",
+                        "on-primary-fixed": "#22005d",
+                        "surface-variant": "#e6e0e9",
+                        "primary-fixed": "#e9ddff",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#f2ecf4",
+                        "surface-bright": "#fdf7ff",
+                        "secondary-container": "#e1d4fd",
+                        "on-background": "#1d1b20",
+                        "tertiary": "#765b00",
+                        "tertiary-container": "#c9a74d",
+                        "on-tertiary-fixed": "#241a00",
+                        "inverse-primary": "#cfbcff",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e6e0e9",
+                        "surface": "#fdf7ff",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#494551",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#6750a4",
+                        "inverse-surface": "#322f35",
+                        "secondary-fixed": "#e9ddff",
+                        "background": "#fdf7ff",
+                        "tertiary-fixed-dim": "#e7c365"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "xl": "64px",
+                        "margin-desktop": "80px",
+                        "lg": "48px",
+                        "sm": "12px",
+                        "gutter": "16px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Nunito Sans"],
+                        "headline-lg": ["Quicksand"],
+                        "label-lg": ["Nunito Sans"],
+                        "headline-md": ["Quicksand"],
+                        "body-md": ["Nunito Sans"],
+                        "display-lg": ["Quicksand"],
+                        "label-sm": ["Nunito Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        /* Custom highlight color as requested, mapping to the theme context conceptually */
+        .bg-lime-moss { background-color: #94C01F; }
+        .text-lime-moss { color: #94C01F; }
+        .border-lime-moss { border-color: #94C01F; }
+        
+        .product-card-shadow { box-shadow: 0 4px 12px rgba(139, 149, 65, 0.08); }
+        .product-card:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(139, 149, 65, 0.12); }
+        .racing-red-bg { background-color: #e53935; } /* Using a standard red as proxy for 'Racing Red' */
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased pt-[80px]">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop py-4 mx-auto bg-surface dark:bg-surface-container-high shadow-sm font-body-md text-body-md">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
+            Ebenezer Supermercado
+        </div>
+<div class="hidden md:flex gap-md items-center">
+<a class="text-on-surface-variant dark:text-outline-variant font-medium hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Home</a>
+<a class="text-primary dark:text-primary-fixed-dim font-bold border-b-2 border-primary dark:border-primary-fixed-dim pb-1 hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Tienda</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-medium hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Nosotros</a>
+</div>
+<div class="flex items-center gap-sm">
+<button class="relative p-2 text-primary hover:text-primary-container transition-colors" onclick="toggleCart()">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="absolute top-0 right-0 bg-lime-moss text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center -mt-1 -mr-1 hidden" id="cart-counter">0</span>
+</button>
+</div>
+</nav>
+<!-- Promotional Banner -->
+<div class="w-full bg-lime-moss text-on-primary py-sm px-margin-mobile md:px-margin-desktop text-center font-label-lg font-bold">
+        ¡Domicilios GRATIS a 3 barrios a la redonda!
+    </div>
+<!-- Main Content -->
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg">
+<!-- Frutas y Verduras Category -->
+<section class="mb-xl">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary" data-icon="local_florist">local_florist</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Frutas y Verduras</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Product 1 -->
+<div class="product-card bg-surface-container-lowest rounded-xl p-md product-card-shadow transition-all duration-300 flex flex-col">
+<div class="h-48 w-full bg-surface-variant rounded-lg mb-sm overflow-hidden relative">
+<img alt="Plátano" class="w-full h-full object-cover" data-alt="A close-up, brightly lit studio shot of fresh, vibrant yellow bananas resting on a clean, soft white surface. The lighting is natural and inviting, creating a warm, approachable mood typical of a friendly local market. The background is slightly blurred to emphasize the freshness and quality of the produce, fitting a modern light-mode design system with soft tactile qualities." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzdfLUjZa-ltAuNIjZcJQi4ZaJO1uOS2GA8Meuj1g4StuQ3sd6YORfVS4_SnY1GDesra7dYnAWFob5DhkqI7lrhA8M_tJfTddMQraBTkg68BAXNUy_xB9JecOztIsAllt8rI8QmuuTZIKrwYxOr7vkvfD5xU9leFTT83hEktJfp_qKg83Fc3S3YrZsS6fJNljnad_tbRXfGDAcIXYpnh0-z2rcQBe0qYiJMqaCMQCth0FLe0dXCx6L_aZmaOH-0_nSiMX9aQsEkuw"/>
+<div class="absolute top-2 left-2 bg-lime-moss text-on-primary px-2 py-1 rounded-full font-label-sm">Fresco</div>
+</div>
+<div class="flex-grow">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface mb-xs">Plátanos Frescos</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Directamente del campo, ideales para un snack saludable.</p>
+</div>
+<div class="mt-sm flex justify-between items-center">
+<span class="font-headline-md text-headline-md font-bold text-error">$1.50 <span class="font-body-md text-body-md text-on-surface-variant font-normal">/ lb</span></span>
+<button class="w-10 h-10 rounded-full racing-red-bg text-white flex items-center justify-center hover:bg-error-container hover:text-error transition-colors shadow-sm" onclick="addToCart()">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="product-card bg-surface-container-lowest rounded-xl p-md product-card-shadow transition-all duration-300 flex flex-col">
+<div class="h-48 w-full bg-surface-variant rounded-lg mb-sm overflow-hidden relative">
+<img alt="Tomates" class="w-full h-full object-cover" data-alt="A macro shot of bright, ripe red tomatoes with fresh green stems, sitting on a soft, light-colored wooden table. The lighting is warm and diffused, evoking a sunny morning at a neighborhood farmers market. The overall aesthetic is clean, fresh, and trustworthy, perfectly suited for a light-mode grocery catalog with a caregiver brand personality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZm_Mbo38fFRLx42YU8FzixmQiv7DoXgHzKZ9udfJxmrduqka7d_lsQC1eMIrTMXCO5P7mfFgt_n0jD6WLWXt34yEr9-xNmr4J6R5yC7ctRWgOnqIOqUH5vyx5hw5avraqzzpAC6o41sAcdRghxx0ESmVc_Xm5wAEeXYFQ5gcjDRV5fVdTvCeVom7plRQ8JdNQI2lcRLJaZ_ybrjtelnb1Xo7XznkTFy1xgZ-vSkhy3P2FUkN33_E--VYTzo_mkPjtEraxsBup_Io"/>
+<div class="absolute top-2 left-2 bg-lime-moss text-on-primary px-2 py-1 rounded-full font-label-sm">Local</div>
+</div>
+<div class="flex-grow">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface mb-xs">Tomates de Huerta</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Rojos, jugosos y perfectos para ensaladas o salsas.</p>
+</div>
+<div class="mt-sm flex justify-between items-center">
+<span class="font-headline-md text-headline-md font-bold text-error">$2.20 <span class="font-body-md text-body-md text-on-surface-variant font-normal">/ lb</span></span>
+<button class="w-10 h-10 rounded-full racing-red-bg text-white flex items-center justify-center hover:bg-error-container hover:text-error transition-colors shadow-sm" onclick="addToCart()">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="w-full h-px bg-outline-variant opacity-50 mb-xl relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjY2JjNGQyIiBmaWxsLW9wYWNpdHk9IjAuMSI+PC9yZWN0Pgo8L3N2Zz4=')] opacity-20"></div>
+</div>
+<!-- Despensa Category -->
+<section class="mb-xl">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary" data-icon="inventory_2">inventory_2</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Despensa</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Product 3 -->
+<div class="product-card bg-surface-container-lowest rounded-xl p-md product-card-shadow transition-all duration-300 flex flex-col">
+<div class="h-48 w-full bg-surface-variant rounded-lg mb-sm overflow-hidden">
+<img alt="Arroz" class="w-full h-full object-cover" data-alt="A beautifully styled composition of premium white rice spilling slightly from a rustic burlap sack onto a pristine white surface. Soft, natural light casts gentle shadows, enhancing the tactile texture of the grains. The scene conveys reliability, quality, and warmth, aligning with a premium yet approachable neighborhood supermarket aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAPHLPjPP4454GKTZfwd79c2FE-BpIu6THcJ-eb7azlT-68e-CL5W5FGosORT9ExpTKIFu04lDWlT_1gvvLP5CH35MK35fgHdF1Miq9omFOpIdZHgtgEbr5C4aClakB6nd5_3awuYkcr9T3NdUFixTCzq-KqjBt7hZkUIYMz-LVw-RNYVpnSR0OAbdXozE_fQwY9-7RXuG7CVt-psJ0ywo6j-Dz4FxsRykC0MKhk-XkeDlrg6P92QuFaduTJsDeMGWeAvlCi1ZTjY"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface mb-xs">Arroz Blanco Premium</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Grano largo, no se pega. El básico de cada hogar.</p>
+</div>
+<div class="mt-sm flex justify-between items-center">
+<span class="font-headline-md text-headline-md font-bold text-error">$3.00 <span class="font-body-md text-body-md text-on-surface-variant font-normal">/ 2 lb</span></span>
+<button class="w-10 h-10 rounded-full racing-red-bg text-white flex items-center justify-center hover:bg-error-container hover:text-error transition-colors shadow-sm" onclick="addToCart()">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="product-card bg-surface-container-lowest rounded-xl p-md product-card-shadow transition-all duration-300 flex flex-col">
+<div class="h-48 w-full bg-surface-variant rounded-lg mb-sm overflow-hidden">
+<img alt="Aceite" class="w-full h-full object-cover" data-alt="A clear glass bottle of golden olive oil standing elegantly against a soft, light-toned background. Gentle morning sunlight hits the bottle, creating a warm, amber glow that speaks of culinary quality and care. The setup is simple, clean, and modern, fitting perfectly into a friendly, well-organized digital grocery catalog." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIdNnG4nxHAEDX_yQZtGeo5RuuvwGFmcJJOZVv-s96MWtc5ur7XoKGJCa54Ght4sKynf91GwysE_9moK6eYMRfUYTOFgDLTxbEt_DRznnzgBGknpMkgGKy97zDn0J0jo4lky3VrVRrzI1MC5PzdGNBxWQB2vcdkzpmXGQzhdqaSmqdDHGgphX5ZPVUMSdKfViO61vGYDWiRFiwqYLVrPhnRtIfal7s5-tKH6ov6YgxVc2JKR-J5iTI_5VN6jrkC_TCGkY73iS8JtU"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface mb-xs">Aceite de Oliva Virgen</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Prensado en frío, sabor suave ideal para cocinar.</p>
+</div>
+<div class="mt-sm flex justify-between items-center">
+<span class="font-headline-md text-headline-md font-bold text-error">$8.50 <span class="font-body-md text-body-md text-on-surface-variant font-normal">/ 500ml</span></span>
+<button class="w-10 h-10 rounded-full racing-red-bg text-white flex items-center justify-center hover:bg-error-container hover:text-error transition-colors shadow-sm" onclick="addToCart()">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full px-margin-desktop py-lg flex flex-col md:flex-row justify-between items-center gap-md bg-surface-container-lowest dark:bg-surface-dim border-t border-outline-variant font-body-md text-body-md">
+<div class="font-headline-md text-headline-md font-bold text-secondary dark:text-secondary-fixed-dim">
+            Ebenezer Supermercado
+        </div>
+<div class="flex flex-wrap gap-md justify-center">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Contacto</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Ubicación</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Términos</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Privacidad</a>
+</div>
+<div class="text-on-surface-variant dark:text-outline-variant text-sm">
+            © 2024 Ebenezer Supermercado. Tu vecino de confianza.
+        </div>
+</footer>
+<script>
+        let cartCount = 0;
+        
+        function addToCart() {
+            cartCount++;
+            updateCartDisplay();
+            
+            // Simple visual feedback on the button could go here
+        }
+
+        function updateCartDisplay() {
+            const counterElement = document.getElementById('cart-counter');
+            if (cartCount > 0) {
+                counterElement.textContent = cartCount;
+                counterElement.classList.remove('hidden');
+                
+                // Pop animation
+                counterElement.classList.add('scale-125');
+                setTimeout(() => {
+                    counterElement.classList.remove('scale-125');
+                }, 200);
+            } else {
+                counterElement.classList.add('hidden');
+            }
+        }
+    </script>
+</body></html>
